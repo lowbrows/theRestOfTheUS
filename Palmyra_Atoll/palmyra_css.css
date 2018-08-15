@@ -1,0 +1,85 @@
+#map_container {
+    	height: 100%;
+    	border-width: 10px;
+        border-color:black;
+    }
+
+tabs {
+	width: 100%;
+}
+
+/* Always set the map height explicitly to define the size of the div
+ * element that contains the map. */
+#map {
+  background-color: grey;
+	float: left;
+  height: 90%;
+  width: 85%;
+  border-width: 5px;
+/* Optional: Makes the sample page fill the window. */
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.top_nav {
+    display:flex;
+    padding: 7px;
+    background-color: lightskyblue;
+    border-bottom-color: black;
+    border-width: 3px;
+}
+
+.top_nav_list{
+    display: inline-flex;
+    padding-right:60px;
+    padding-left:10px;
+    font-size:18px;
+}
+
+h1 p {
+	height: 1px;
+	text-align: center;
+	border-width:3px;
+	padding: 2px;
+}
+ 
+#legend {
+	height: 90%;
+	width: 15%;
+	float: right;
+}
+
+h3 {
+	background-color:#C3FF00;
+}
+
+ul.sub-menu {
+  columns: 2;
+  -webkit-columns: 2;
+  -moz-columns: 2;
+}
+
+.sub-menu {
+    height: 8%;
+    background-color:#C3FF00
+}
+
+label.h1 {
+    margin: 0;
+    padding: 0;
+}
+
+.sub-menu.li {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+#header {
+    margin:0px;
+    padding:0px;
+}

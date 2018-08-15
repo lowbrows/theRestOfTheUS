@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <link rel="stylesheet" type="text/css" href="rest_theUS2.css"/>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>The  rest of the us</title>
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="/resources/demos/style.css">
+
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  
+  <script>
+  $( function() {
+    $( "#accordion" ).accordion({
+      collapsible: true
+    });
+  } );
+  </script>
+  
+  <script>
+  $( function() {
+    $( "#tabs" ).tabs();
+  } );
+  </script>
+  
+</head>
+
+<body>
+<h1 id= "header"><p>The Rest of the US:</p>
+	<p>Incorporated Islands, the Guano Act Islands, and Associated States</p>
+</h1>
+
+<div id="tabs">
+  <ul>
+    <label><h1>Overview</h1></label>
+    <li><a href="#tabs-1">General Information</a></li>
+    <li><a href="#Inhabited_islands">Inhabited Islands</a></li>
+    <li><a href="#Uninhabited_Islands">Uninhabited Islands</a></li>
+    <li><a href="#tabs-4">Associated States</a></li>
+  </ul>
+  <div id="tabs-1">
+    <p class="tab_header2">General Information</p>
+    <p><a href="https://www.doi.gov/oia/islands/acquisitionprocess">Department of the Interior: Acquisition Process</a></p>
+    <p><a href="https://en.wikipedia.org/wiki/Territories_of_the_United_States">Wikipedia: Territories of the US</a></p>
+  </div>
+  
+  <div id="Inhabited_islands">
+      <label><h1>Inhabited_Islands</h1></label>
+  	<ul class="sub-menu">
+  		<li>Puerto Rico</li>
+  		<li>U.S. Virgin Islands</li>
+  		<li>Guam</li>
+  		<li>Northern Mariana Islands</li>
+  		<li>American Samoa</li>
+  	</ul>
+  </div>
+  
+  <div id="Uninhabited_Islands">
+  	<ul class="sub-menu">
+        <label><h1>Uninhabited Islands</h1></label>
+    	<li><a href="/">Baker Island</a></li>
+    	<li><a href="/">Howland Island</a></li>
+    	<li><a href="/">Jarvis Island</a></li>
+    	<li><a href="/">Johnson Atoll</a></li>
+    	<li><a href="/">Kingman Reef</a></li>
+    	<li><a href="/">Midway Atoll</a></li>
+    	<li><a href="/">Navassa Island</a></li>
+    	<li><a href="PalmyraAtoll.html">Palmyra Atoll - Incorporated</a></li>
+    	<li><a href="">Swains Island</a></li>
+    </ul>
+  </div>
+  
+  <div id="tabs-4">
+  	<h1>Compacts of Free Association</h1>
+    <p><a href="https://en.wikipedia.org/wiki/Federated_States_of_Micronesia">Federated States of Micronesia</a></p>
+    <p><a href="https://en.wikipedia.org/wiki/Marshall_Islands">Republic of the Marshall Islands</a></p>
+    <p><a href="https://en.wikipedia.org/wiki/Palau">Republic of Palau</a></p>
+  </div>
+</div>
+ 
+<div id= "map_container">
+	
+<div id="legend">
+	<div id="accordion">
+  <h3>Population Centers</h3>
+  <div>
+    <p>
+    	
+    <a href="https://en.wikipedia.org/wiki/Palikir">Palikir</a>
+    </p>
+  </div>
+  <h3>Section 2</h3>
+  <div>
+    <p>
+    Sed 
+    </p>
+  </div>
+  <h3>Section 3</h3>
+  <div>
+    <p>
+    Nam e
+    </p>
+    <ul>
+      <li>List item one</li>
+      <li>List item two</li>
+      <li>List item three</li>
+    </ul>
+  </div>
+  <h3>Section 4</h3>
+  <div>
+    <p>
+    Cras 
+    </p>
+    <p>
+    Suspendi
+    </p>
+  </div>
+</div>
+	
+</div>
+
+  
+<div id="map"></div>
+<script>
+      var map;
+      function initMap() {
+      	var uluru = {lat: 6.91722222, lng: 158.15888888};
+        map = new google.maps.Map(document.getElementById('map'), {
+          center: {lat: 6.91722222, lng: 158.15888888},
+          zoom: 4,
+          mapTypeControl: true,
+    	  mapTypeControlOptions: {
+          style: google.maps.MapTypeControlStyle.DROPDOWN_MENU,
+          mapTypeIds: ['roadmap', 'terrain', 'topo']
+    }
+          
+        });
+        var marker = new google.maps.Marker({
+          position: uluru,
+          map: map,
+          title: "Palikir",
+          label: "Palikir",
+        });
+      }
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB64q5jKJKPHuIfSmR3afirhvi6Gu9cqIU&callback=initMap"
+    async defer></script>
+</div>
+</body>
+</html>

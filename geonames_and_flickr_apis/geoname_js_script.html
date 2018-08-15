@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+
+  <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    <script type="text/javascript">
+        //look for code example at: https://www.youtube.com/watch?v=SjLJ8Dyuywg
+        $(document).ready(function () {
+            $("#btnGetWiki").click(function () {
+                var requestData = $('#txtResults').val();
+                var resultElement = $('#resultDiv');
+                
+                $.ajax({
+                    url: 'http://api.geonames.org/wikipediaBoundingBoxJSON',
+                    method: 'get',
+                    data: {north:-13.0 , south:-15 , east:-169.0 , west:-171.0 , maxRows:requestData , username:'lowbrowsr'},
+                    datetype: 'json',
+                    success: function (data) {
+                        for (var i=0; i < data.geonames.length; i++) {
+                            resultElement.append('<p>' + 'Wikipedia Url: ' + "<a href= 'https://" + 
+                                           data.geonames[i].wikipediaUrl  + "'>link</a>" +
+                                           '<br>'+ '<p>Summary: ' + data.geonames[i].summary + '<p>' + '<br>');
+                        }
+                        console.log(data.geonames.length);
+                    }
+                });
+            });
+        });  
+    </script>
+
+      
+  </head>
+
+  <body>
+    <table>
+      <tr>
+        <td>Number of results</td>
+        <td><input type="text" id="txtResults" /></td>
+      </tr>  
+    </table>
+     <input type="button" id="btnGetWiki" value="Get Wikipedia Results">
+<br /><br />
+    <div id="resultDiv"></div>
+
+    
+  </body>
+
+
+</html>

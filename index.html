@@ -1,0 +1,415 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <link rel="stylesheet" type="text/css" href="rest_theUS2.css" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>The  rest of the us</title>
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="/resources/demos/style.css">
+
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  
+  <script>
+  $( function() {
+    $( "#accordion" ).accordion({
+      collapsible: true
+    });
+  } );
+  </script>
+  
+<script>
+  $( function() {
+    $( "#tabs" ).tabs();
+  } );
+  </script>
+  
+</head>
+
+<body>
+    
+<h1 id= "header"><p>The Rest of the US:</p>
+	<p>Incorporated Islands, the Guano Act Islands, and Associated States</p>
+</h1>
+
+<div id="tabs">
+  <ul class="top_nav">
+    <!--<label><h1>Overview</h1></label>-->
+    <li class="top_nav_list"><a href="#tabs-1">General Information</a></li>
+    <li id= "inhab_id" class="top_nav_list"><a href="#Inhabited_islands">Inhabited Islands</a></li>
+    <li id="unhab_id" class="top_nav_list"><a href="#Uninhabited_Islands">Uninhabited Islands</a></li>
+    <li id= "assoc_id" class="top_nav_list"><a href="#tabs-4">Associated States</a></li>
+  </ul>
+  <div id="tabs-1">
+      <ul class="sub-menu">
+        <label><h1>General Information</h1></label>
+        <p><a href="https://www.doi.gov/oia/islands/acquisitionprocess">Department of the Interior: Acquisition Process</a></p>
+        <p><a href="https://en.wikipedia.org/wiki/Territories_of_the_United_States">Wikipedia: Territories of the US</a></p>
+      </ul>
+    <!--<p class="tab_header2">General Information</p>-->
+  </div>
+  
+  <div id="Inhabited_islands">
+  	<ul class="sub-menu">
+        <label><h1>Inhabited Islands</h1></label>
+  		<li><a href = "Puerto_Rico/puerto_rico.html">Puerto Rico</a></li>
+  		<li><a href="USVirgin_Islands/usvirgin_islands.html">U.S. Virgin Islands</a></li>
+  		<li><a href="Guam/guam.html">Guam</a></li>
+  		<li><a href ="Northern_Mariana_Islands/northern_marianas.html">Northern Mariana Islands</a></li>
+  		<li><a href="American_Samoa/american_samoa.html">American Samoa</a></li>
+  	</ul>
+  </div>
+  
+  <div id="Uninhabited_Islands">
+  	<ul class="sub-menu">
+        <label><h1>Uninhabited Islands</h1></label>
+    	<li><a href="Baker_Island/baker_island.html">Baker Island</a></li>
+    	<li><a href="Howland_Island/howland_island.html">Howland Island</a></li>
+    	<li><a href="Jarvis_Island/jarvis_island.html">Jarvis Island</a></li>
+    	<li><a href="Johnston_atoll/johnston_atoll.html"  >Johnson Atoll</a></li>
+    	<li><a href="Kingman_reef/kingman_reef.html">Kingman Reef</a></li>
+    	<li><a href="Midway_atoll/midway_atoll.html">Midway Atoll</a></li>
+    	<li><a href="Navassa_island/navassa_island.html">Navassa Island</a></li>
+    	<li><a href="Palmyra_Atoll/PalmyraAtoll.html">Palmyra Atoll - Incorporated</a></li>
+    </ul>
+  </div>
+  
+  <div id="tabs-4">
+  	<ul class="sub-menu">
+        <label><h1>Associated States</h1></label>
+        <li><a href="Micronesia/micronesia.html">Federated States of Micronesia</a></li>
+        <li><a href="Marshall_islands/marshall_islands.html">Republic of the Marshall Islands</a>
+        </li>
+        <li><a href="Palau/palau.html">Republic of Palau</a>
+        </li>
+    </ul>
+    <!--<p><a href="https://en.wikipedia.org/wiki/Federated_States_of_Micronesia">Federated States of Micronesia</a></p>
+    <p><a href="https://en.wikipedia.org/wiki/Marshall_Islands">Republic of the Marshall Islands</a></p>
+    <p><a href="https://en.wikipedia.org/wiki/Palau">Republic of Palau</a></p>-->
+  </div>
+</div>
+ 
+<div id= "map_container">
+	
+<div id="legend">
+	<div id="accordion">
+  <h3>Population Centers</h3>
+  <div>
+    <p id="pop_center_list"><a href="https://en.wikipedia.org/wiki/San_Juan,_Puerto_Rico">San Juan</a></p>
+    <p id="pop_center_list"><a href="https://www.nps.gov/sari/index.htm">Charlotte Amalie</a></p>
+    <p id="pop_center_list"><a href="https://en.wikipedia.org/wiki/Palikir">Palikir</a></p>
+  </div>
+  <h3>Zoom to Regions</h3>
+  <div>
+    <p id = "caribbean_zoom">Caribbean</p>
+    <p id= "sp_zoom">South Pacific</p>
+    <p id = "np_zoom">North Pacific</p>
+  </div>
+  <h3>Section 3</h3>
+  <div>
+    <p>
+    Nam e
+    </p>
+    <ul>
+      <li>List item one</li>
+      <li>List item two</li>
+      <li>List item three</li>
+    </ul>
+  </div>
+  <h3>Section 4</h3>
+  <div>
+    <p>
+    Cras 
+    </p>
+    <p>
+    Suspendi
+    </p>
+  </div>
+</div>
+	
+</div>
+
+  
+<div id="map"></div>
+
+<script>
+      var map;
+      function initMap() {
+//Coordinate vars
+        var char_amalie_cord = new google.maps.LatLng(18.35, -64.95);
+        var cent_overview = {lat: 6.91722222, lng: 88.15888888};
+        //Inhabited Islands coordinates
+        var us_virgin_cord = {lat: 18.35, lng: -64.95};
+        var puerto_rico_cord = {lat: 18.406389, lng: -66.063889};
+        var guam_cord = {lat:13.441944, lng:144.776389};
+        var northern_mar_cord = {lat:15.180833, lng:145.755833};
+        var american_samoa_cord = {lat:-14.271, lng:-170.1322};
+        //Uninhabited Island coordinates  
+        var palmyra_cord = {lat:5.883611, lng:-162.078333};
+        var baker_cord = {lat:0.194722, lng: -176.479444};
+        var howland_cord = {lat:0.806667, lng:-176.616389};
+        var navassa_cord = {lat:18.402778, lng:-75.0125};
+        var midway_cord = {lat:28.2101, lng:-177.3761};
+        var kingman_cord = {lat:6.383333, lng:-162.416667};
+        var johnston_cord = {lat:16.736944, lng:-169.523889};
+        var jarvis_cord = {lat:-0.366667, lng:-160.016667};
+        var swains_cord = {lat:-11.055556, lng:-171.077778};
+        //Associated States coordinates
+        var micronesia_cord = {lat:6.916667, lng:158.25};
+        var marshall_cord = {lat:7.083333, lng:171.383333};
+        var palau_cord = {lat:7.34222, lng:134.47719};
+        //region coordinates
+        var caribbean_cord = {lat:18.38, lng:-65.25};
+        var sp_cord = {lat:-14.271, lng:-170.1322};
+        var np_cord = {lat:13.441944, lng:155.776389};
+          
+//Top nav div vars
+        var inhab_div = document.getElementById('inhab_id');
+        var unhab_div = document.getElementById('unhab_id');
+        var assoc_div = document.getElementById('assoc_id');
+        var caribbean_div = document.getElementById("caribbean_zoom");
+        var sp_div = document.getElementById("sp_zoom");
+        var np_div = document.getElementById("np_zoom");
+          
+//Main map init          
+        map = new google.maps.Map(document.getElementById('map'), {
+          center: {lat: 39.83, lng: -98.58},
+          zoom: 2,
+          mapTypeControl: true,
+    	  mapTypeControlOptions: {
+          style: google.maps.MapTypeControlStyle.DROPDOWN_MENU,
+          mapTypeIds: ['roadmap', 'satellite', 'topo']
+    }
+          
+        });
+//Inhabited MARKERS
+        var us_virgin_marker = new google.maps.Marker({
+          position: us_virgin_cord,
+          title: "US VIRGIN ISLANDS",
+          label: "US VIRGIN ISLANDS",
+          draggable: false,
+          animation: google.maps.Animation.DROP,
+        });
+          
+        var pr_marker = new google.maps.Marker({
+          position: puerto_rico_cord,
+          title: "Puerto Rico",
+          label: "Puerto Rico",
+          draggable: false,
+          animation: google.maps.Animation.DROP,
+        });
+ 
+        var guam_marker = new google.maps.Marker({
+          position: guam_cord,
+          title: "Guam",
+          label: "Guam",
+          draggable: false,
+          animation: google.maps.Animation.DROP,
+        });
+          
+        var northern_mar_marker = new google.maps.Marker({
+          position: northern_mar_cord,
+          title: "Northern Mariana Islands",
+          label: "Northern Mariana Islands",
+          draggable: false,
+          animation: google.maps.Animation.DROP,
+        });
+          
+        var american_samoa_marker = new google.maps.Marker({
+          position: american_samoa_cord,
+          title: "American Samoa",
+          label: "American Samoa",
+          draggable: false,
+          animation: google.maps.Animation.DROP,
+        });
+//Uninhabited Markers
+        var palmyra_marker = new google.maps.Marker({
+          position: palmyra_cord,
+          title: "Palmyra Atoll",
+          label: "Palmyra Atoll",
+          draggable: false,
+          animation: google.maps.Animation.DROP,
+        });  
+        
+        var baker_marker = new google.maps.Marker({
+          position: baker_cord,
+          title: "Baker Island",
+          label: "Baker Island",
+          draggable: false,
+          animation: google.maps.Animation.DROP,
+        });
+          
+        var howland_marker = new google.maps.Marker({
+          position: howland_cord,
+          title: "Howland Island",
+          label: "Howland Island",
+          draggable: false,
+          animation: google.maps.Animation.DROP,
+        });
+          
+        var navassa_marker = new google.maps.Marker({
+          position: navassa_cord,
+          title: "Navassa Island",
+          label: "Navassa Island",
+          draggable: false,
+          animation: google.maps.Animation.DROP,
+        });
+          
+        var midway_marker = new google.maps.Marker({
+          position: midway_cord,
+          title: "Midway Atoll",
+          label: "Midway Atoll",
+          draggable: false,
+          animation: google.maps.Animation.DROP,
+        });
+          
+        var kingman_marker = new google.maps.Marker({
+          position: kingman_cord,
+          title: "Kingman Reef",
+          label: "Kingman Reef",
+          draggable: false,
+          animation: google.maps.Animation.DROP,
+        });
+          
+        var johnston_marker = new google.maps.Marker({
+          position: johnston_cord,
+          title: "Johnston Atoll",
+          label: "Johnston Atoll",
+          draggable: false,
+          animation: google.maps.Animation.DROP,
+        });
+          
+        var jarvis_marker = new google.maps.Marker({
+          position: jarvis_cord,
+          title: "Jarvis Island",
+          label: "Jarvis Island",
+          draggable: false,
+          animation: google.maps.Animation.DROP,
+        });
+          
+        var swains_marker = new google.maps.Marker({
+          position: swains_cord,
+          title: "Swains Island",
+          label: "Swains Island",
+          draggable: false,
+          animation: google.maps.Animation.DROP,
+        });
+//Associated States markers
+        var micronesia_marker = new google.maps.Marker({
+          position: micronesia_cord,
+          title: "Federated States of Micronesia",
+          label: "Federated States of Micronesia",
+          draggable: false,
+          animation: google.maps.Animation.DROP,
+        });  
+         
+        var marshall_marker = new google.maps.Marker({
+          position: marshall_cord,
+          title: "Republic of the Marshall Islands",
+          label: "Republic of the Marshall Islands",
+          draggable: false,
+          animation: google.maps.Animation.DROP,
+        });
+          
+        var palau_marker = new google.maps.Marker({
+          position: palau_cord,
+          title: "Republic of Palau",
+          label: "Republic of Palau",
+          draggable: false,
+          animation: google.maps.Animation.DROP,
+        }); 
+//Marker dropping functions
+        //Inhabited islands marker function
+        google.maps.event.addDomListener(inhab_div, 'click', function() {
+          us_virgin_marker.setMap(map);
+          pr_marker.setMap(map);
+          guam_marker.setMap(map);
+          northern_mar_marker.setMap(map);
+          american_samoa_marker.setMap(map);
+          palmyra_marker.setMap(null);
+          baker_marker.setMap(null);
+          howland_marker.setMap(null);
+          navassa_marker.setMap(null);
+          midway_marker.setMap(null);
+          kingman_marker.setMap(null);
+          johnston_marker.setMap(null);
+          jarvis_marker.setMap(null);
+          swains_marker.setMap(null);
+          micronesia_marker.setMap(null);
+          marshall_marker.setMap(null);
+          palau_marker.setMap(null);
+        });
+         
+        google.maps.event.addDomListener(unhab_div, 'click', function() {
+          us_virgin_marker.setMap(null);
+          pr_marker.setMap(null);
+          guam_marker.setMap(null);
+          northern_mar_marker.setMap(null);
+          american_samoa_marker.setMap(null);
+          palmyra_marker.setMap(map);
+          baker_marker.setMap(map);
+          howland_marker.setMap(map);
+          navassa_marker.setMap(map);
+          midway_marker.setMap(map);
+          kingman_marker.setMap(map);
+          johnston_marker.setMap(map);
+          jarvis_marker.setMap(map);
+          swains_marker.setMap(map);
+          micronesia_marker.setMap(null);
+          marshall_marker.setMap(null);
+          palau_marker.setMap(null);
+        });  
+          
+        google.maps.event.addDomListener(assoc_div, 'click', function() {
+          us_virgin_marker.setMap(null);
+          pr_marker.setMap(null);
+          guam_marker.setMap(null);
+          northern_mar_marker.setMap(null);
+          american_samoa_marker.setMap(null);
+          palmyra_marker.setMap(null);
+          baker_marker.setMap(null);
+          howland_marker.setMap(null);
+          navassa_marker.setMap(null);
+          midway_marker.setMap(null);
+          kingman_marker.setMap(null);
+          johnston_marker.setMap(null);
+          jarvis_marker.setMap(null);
+          swains_marker.setMap(null);
+          micronesia_marker.setMap(map);
+          marshall_marker.setMap(map);
+          palau_marker.setMap(map);
+        }); 
+          
+        //functions to pan and zoom to regions
+        google.maps.event.addDomListener(caribbean_div, 'click', function() {
+          map.panTo(caribbean_cord);
+          map.setZoom(7);
+        });
+          
+        google.maps.event.addDomListener(sp_div, 'click', function() {
+          map.panTo(sp_cord);
+          map.setZoom(8);
+        });
+          
+        google.maps.event.addDomListener(np_div, 'click', function() {
+          map.panTo(np_cord);
+          map.setZoom(4);
+        });
+      }
+    </script>
+    
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB64q5jKJKPHuIfSmR3afirhvi6Gu9cqIU&callback=initMap"
+    async defer>
+    </script>
+</div>
+    
+<div class="footer">
+    <footer>
+        <p>Please email me at: spencerroddan@yahoo.com with any questions, links, pages you would like to add, or anything else you want to contribute. Remember to put the site name in the subject.  Thanks</p>
+    
+    </footer>
+</div>
+</body>
+</html> 

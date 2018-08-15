@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <link rel="stylesheet" type="text/css" href="../island_pages_css.css"/>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>The rest of the us</title>
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="/resources/demos/style.css">
+
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  
+  <script>
+  $( function() {
+    $( "#accordion" ).accordion({
+      collapsible: true
+    });
+  } );
+  </script>
+  
+  <script>
+  $( function() {
+    $( "#tabs" ).tabs();
+  } );
+  </script>
+</head>
+
+<body>
+<h1 id= "header"><p>Guam: Land of the Chamorro</p></h1>
+
+<div id="tabs">
+  <ul class="top_nav">
+    <li class="top_nav_list"><a href="#tabs-1">General Information</a></li>
+    <li class="top_nav_list"><a href= "#return">Main Page</a></li>
+    <li class="top_nav_list"><a href="#History">More Links</a></li>
+    <li id="about_tab" class="top_nav_list"><a href= "#about_content">About</a></li>
+  </ul>
+    
+  <div id="tabs-1">
+      <ul class="sub-menu">
+        <label><h1>General Information</h1></label>
+        <p><a href="https://en.wikipedia.org/wiki/Guam">Wikipedia: Guam</a></p>
+        <p><a href="http://historicguam.org/register.htm">Historic Site Register</a></p>
+      </ul>
+  </div>
+  
+    <div id="return">
+  	<ul class="sub-menu">
+        <label><h1><a href= "../index.html">Main Page</a></h1></label>
+  	</ul>
+  </div>
+
+    
+  <div id="History">
+    <ul class= "sub-menu">
+        <label><h1>More Links</h1></label>
+        <p>Put more links here</p>
+        <p>And here</p>
+    </ul>
+  </div>
+  
+  <div id="about_content" class= "sub-menu">
+        <p>This site is an effort to raise awareness and also to facilatate exploring the insular islands of the US on google maps and also through the web in general.</p>
+        <p>I hope you enjoy it as much as I enjoyed creating it.</p>
+  </div>
+     
+</div>
+ 
+<div id= "map_container">
+	
+<div id="legend">
+	<div id="accordion">
+  <h3>Population Centers</h3>
+  <div>
+    <p>Click to zoom to cities in Guam</p>
+	<ul id="guam">
+		<li id="hagatne">Hagatne</li>
+        <li id="dededo">Dededo</li>
+	</ul>
+    <p id='guam_zoom'>Click here to zoom out</p>
+  </div>
+  <h3>Section 2</h3>
+  <div>
+    <p>Sed </p>
+  </div>
+  <h3>Section 3</h3>
+  <div>
+    <p>Nam e</p>
+    <ul>
+      <li>List item one</li>
+      <li>List item two</li>
+    </ul>
+  </div>
+  <h3>Section 4</h3>
+  <div>
+    <p>Cras </p>
+  </div>
+</div>
+	
+</div>
+
+<!--MAP VIEW DIV-->
+<div id="map"></div>
+
+<!--js for google map -->    
+    <script>
+        
+      var map;
+      function initMap() {
+      	var pantest= {lat: 2.016667, lng: -157.20};
+        var guam_cord = {lat: 13.441944, lng: 144.776389};
+        var hagatne_cord = {lat:13.483333, lng:144.75};
+        var dededo_cord = {lat:13.515278, lng:144.836111};
+          
+//to make automated pan first create a var with a getElementById call          
+      	var hagatne_div = document.getElementById('hagatne');
+        var dededo_div = document.getElementById('dededo');
+        var guam_div = document.getElementById('guam_zoom')
+        
+        map = new google.maps.Map(document.getElementById('map'), {
+          center: guam_cord,
+          zoom: 10,       
+        });
+//to make automated pan second- use the getElementById var and use the panTo function to pan to the new location
+        google.maps.event.addDomListener(hagatne_div, 'click', function() {
+          map.panTo(hagatne_cord);
+          map.setZoom(14);
+        });
+        
+        google.maps.event.addDomListener(dededo_div, 'click', function() {
+          map.panTo(dededo_cord);
+          map.setZoom(14);
+        });
+          
+        google.maps.event.addDomListener(guam_div, 'click', function() {
+          map.panTo(guam_cord);
+          map.setZoom(7);
+        });
+          
+        var marker = new google.maps.Marker({
+          position: guam_cord,
+          map: map,
+          title: "Guam",
+          label: "Guam",
+        });
+          var contentString = 'Lat:' + guam_cord.lat + 
+              'Long:' + guam_cord.lng;
+          var infowindow = new google.maps.InfoWindow({
+          content: contentString
+        });
+          marker.addListener('click', function() {
+            //call open on info window with map and marker as parameters
+          infowindow.open(map, marker);
+        });
+      }
+    </script>
+    
+    
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB64q5jKJKPHuIfSmR3afirhvi6Gu9cqIU&callback=initMap"
+    async defer></script>
+</div>
+</body>
+</html>

@@ -1,0 +1,84 @@
+body{
+    background: white top center;
+    background-size: cover;
+	height:100%;
+	margin-bottom: 0px;
+}
+#header {
+	color:Black;
+	font-family: Terminal;
+	font-size:large;
+	text-align: center;
+	border-bottom: 2px;
+}
+
+
+
+
+
+
+
+
+
+nav {
+  background-color: #304030;
+  color: #EFEFEF; }
+  
+nav .container {
+    display: inline;
+    justify: center;
+    text-align: center; }
+    
+ nav .container object {
+      width: 4.5em;
+      padding: 1.2em 0.5em; }
+      
+ nav .container .incorporated {
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      padding: 10em 1.25em;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+      cursor: pointer; }
+
+.incorporated_menu {
+  background-color: #535353;
+  color: #EFEFEF;
+  display: block; }
+ .incorporated_menu .container {
+    padding: 1.5em;
+    display: block; }
+.incorporated_menu .container ul {
+      list-style: none; }
+.incorporated_menu .container ul li {
+        padding: 0.25em 2em; }
+.incorporated_menu .container ul li:first-child {
+          text-transform: uppercase;
+          color: #C3FF00;
+          letter-spacing: 0.05em; }
+
+
+ nav .container .guano {
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      padding: 10em 1.25em;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+      cursor: pointer; }
+      
+ nav .container .associated {
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      padding: 10em 1.25em;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+      cursor: pointer; }
+
+.hide {
+  display: none; }

@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <link rel="stylesheet" type="text/css" href="palmyra_css.css"/>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>The rest of the us</title>
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="/resources/demos/style.css">
+
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  
+  <script>
+  $( function() {
+    $( "#accordion" ).accordion({
+      collapsible: true
+    });
+  } );
+  </script>
+  
+  <script>
+  $( function() {
+    $( "#tabs" ).tabs();
+  } );
+  </script>
+</head>
+
+<body>
+<h1 id= "header"><p>Palmyra Atoll:</p>
+	<p>Southernmost Incorporated Territory in the US</p>
+</h1>
+
+<div id="tabs">
+  <ul class="top_nav">
+    <li class="top_nav_list"><a href="#tabs-1">General Information</a></li>
+    <li class="top_nav_list"><a href= "#return">Main Page</a></li>
+    <li class="top_nav_list"><a href="#History">More Links</a></li>
+
+  </ul>
+  <div id="tabs-1">
+    <p><a href="https://www.nature.org/ourinitiatives/regions/northamerica/unitedstates/hawaii/palmyraatoll/index.htm">The Nature Conservancy Palmyra Atoll Research</a></p>
+  	<p><a href="https://en.wikipedia.org/wiki/Palmyra_Atoll">Wikipedia: Palmyra Atoll</a></p>
+  </div>
+  
+    <div id="return">
+  	<ul>
+  		<li><a href= "../index.html">Main Page</a></li>
+  	</ul>
+  </div>
+
+    
+  <div id="History">
+	<p>Put more links here</p>
+  </div>
+  
+</div>
+ 
+<div id= "map_container">
+	
+<div id="legend">
+	<div id="accordion">
+  <h3>Nearby Population Centers</h3>
+  <div>
+    <p>Click to pan to nearby island</p>
+	<ul id="PalmyraAtoll_cities">
+		<li id="kiribati">Kiribati</li>
+        <li id="tabuaeran">Tabuaeran</li>
+        <li id="teraina">Teraina/Washington Island</li>
+	</ul>
+    <p id='back_to_palmyra'>Click here to go back to Palmyra</p>
+  </div>
+  <h3>Section 2</h3>
+  <div>
+    <p>
+    Sed 
+    </p>
+  </div>
+  <h3>Section 3</h3>
+  <div>
+    <p>
+    Nam e
+    </p>
+    <ul>
+      <li>List item one</li>
+      <li>List item two</li>
+      <li>List item three</li>
+    </ul>
+  </div>
+  <h3>Section 4</h3>
+  <div>
+    <p>
+    Cras 
+    </p>
+    <p>
+    Suspendi
+    </p>
+  </div>
+</div>
+	
+</div>
+
+<!--MAP VIEW DIV-->
+<div id="map"></div>
+
+<!--js for google map -->    
+    <script>
+        
+      var map;
+      function initMap() {
+      	var pantest= {lat: 2.016667, lng: -157.20};
+      	var palmyra = {lat: 5.883611, lng: -162.078333};
+        var london_kiribati= {lat: 1.983333, lng: -157.475};
+        var napari = {lat: 3.86, lng: -159.364444};
+        var teraina = {lat: 4.683333, lng: -160.377778};
+          
+//to make automated pan first create a var with a getElementById call          
+      	var kirdiv = document.getElementById('kiribati');
+        var tabdiv = document.getElementById('tabuaeran');
+        var paldiv = document.getElementById('back_to_palmyra')
+        var terdiv = document.getElementById('teraina')
+        
+        map = new google.maps.Map(document.getElementById('map'), {
+          center: {lat: 5.8836111111, lng: -162.078333},
+          zoom: 13,
+          
+        });
+//to make automated pan second- use the getElementById var and use the panTo function to pan to the new location
+        google.maps.event.addDomListener(kirdiv, 'click', function() {
+          map.panTo(london_kiribati);
+          map.setZoom(11);
+        });
+        
+        google.maps.event.addDomListener(tabdiv, 'click', function() {
+          map.panTo(napari);
+          map.setZoom(12);
+        });
+          
+        google.maps.event.addDomListener(terdiv, 'click', function() {
+          map.panTo(teraina);
+          map.setZoom(13);
+        });
+          
+        google.maps.event.addDomListener(paldiv, 'click', function() {
+          map.panTo(palmyra);
+        });
+          
+        var marker = new google.maps.Marker({
+          position: palmyra,
+          map: map,
+          title: "Palmyra",
+          label: "Palmyra",
+        });
+          var contentString = 'Lat:' + palmyra.lat + 
+              'Long:' + palmyra.lng;
+          var infowindow = new google.maps.InfoWindow({
+          content: contentString
+        });
+          marker.addListener('click', function() {
+            //call open on info window with map and marker as parameters
+          infowindow.open(map, marker);
+        });
+      }
+    </script>
+    
+    
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB64q5jKJKPHuIfSmR3afirhvi6Gu9cqIU&callback=initMap"
+    async defer></script>
+</div>
+</body>
+</html>

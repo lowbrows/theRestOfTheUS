@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <link rel="stylesheet" type="text/css" href="../island_pages_css.css"/>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>The rest of the US</title>
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="/resources/demos/style.css">
+
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  
+  <script>
+  $( function() {
+    $( "#accordion" ).accordion({
+      collapsible: true
+    });
+  } );
+  </script>
+  
+  <script>
+  $( function() {
+    $( "#tabs" ).tabs();
+  } );
+  </script>
+</head>
+
+<body>
+<h1 id= "header"><p>Republic of the Marshall Islands</p>
+</h1>
+
+<div id="tabs">
+  <ul class="top_nav">
+    <li class="top_nav_list"><a href="#tabs-1">General Information</a></li>
+    <li class="top_nav_list"><a href= "#return">Main Page</a></li>
+    <li class="top_nav_list"><a href="#History">More Links</a></li>
+    <li id="about_tab" class="top_nav_list"><a href= "#about_content">About</a></li>
+  </ul>
+    
+  <div id="tabs-1">
+      <ul class="sub-menu">
+        <label><h1>General Information</h1></label>
+        <p><a href="https://en.wikipedia.org/wiki/Marshall_Islands">Wikipedia: Republic of the Marshall Islands</a></p>
+        <p><a href="http://www.fsmgov.org/comp_per.html">Background about the compacts of free association</a></p>
+      </ul>
+  </div>
+  
+    <div id="return">
+  	<ul class="sub-menu">
+        <label><h1><a href= "../index.html">Main Page</a></h1></label>
+  	</ul>
+  </div>
+
+    
+  <div id="History">
+    <ul class= "sub-menu">
+        <label><h1>More Links</h1></label>
+        <p><a href="http://uscompact.org/files/index.php?dir=FSM%20Publications%2FCompact%20Documents">Repository of documents relating to the compacts and their re-negotiation in 2002</a></p>
+        <p><a href="https://www.nytimes.com/interactive/2015/12/02/world/The-Marshall-Islands-Are-Disappearing.html">NY Times: The Marshall Islands are Disappearing</a></p>
+        <p><a href="https://rmiparliament.org/cms/">Republic of the Marshall Islands Parliament</a></p>
+    </ul>
+  </div>
+  
+  <div id="about_content" class= "sub-menu">
+        <p>This site is an effort to raise awareness and also to facilatate exploring the insular islands of the US on google maps and also through the web in general.</p>
+        <p>I hope you enjoy it as much as I enjoyed creating it.</p>
+  </div>
+     
+</div>
+ 
+<div id= "map_container">
+	
+<div id="legend">
+	<div id="accordion">
+  <h3>Population Centers</h3>
+  <div>
+    <p>Click to zoom to population centers</p>
+	<ul id="marshall_islands">
+		<li id="majuro">Majuro</li>
+        <li id="ebeye">Ebeye</li>
+        <li id="jabor">Jabor</li>
+        <li id="arno">Arno</li>
+        <li id="dome">Runit Dome</li>
+
+	</ul>
+    <p id='marshall_zoom'>Click here to zoom out</p>
+  </div>
+  <h3>Marshall Island Administrative Districts</h3>
+  <div>
+    <p id="marshall_groups">The island groups of the Marshall Islands</p>
+      <ul>
+          <li id="ratak">Ratak(sunrise)</li>
+          <li id="ralik">Ralik(sunset)</li>
+      </ul>
+  </div>
+  <h3>Section 3</h3>
+  <div>
+    <p>
+    Nam e
+    </p>
+    <ul>
+      <li>List item one</li>
+      <li>List item two</li>
+    </ul>
+  </div>
+  <h3>Section 4</h3>
+  <div>
+    <p>
+    Cras 
+    </p>
+  </div>
+</div>
+	
+</div>
+
+<!--MAP VIEW DIV-->
+<div id="map"></div>
+
+<!--js for google map -->    
+    <script>
+        
+      var map;
+      function initMap() {
+//cities cords
+        var marshall_cord ={lat:7.083333, lng:171.391};
+      	var majuro_cord= {lat: 7.083333, lng: 171.383333};
+        var ebeye_cord ={lat:8.780278, lng: 167.737222};
+      	var jabor_cord = {lat: 5.921667, lng: 169.6425};
+        var arno_cord= {lat: 7.083333, lng: 171.7};
+        var  dome_cord = {lat:11.545, lng:162.353};
+//Islands cords
+        var ratak_cord = {lat:9.0, lng:171.0};
+        var ralik_cord = {lat:8.0, lng:167.0};
+          
+//to make automated pan first create a var with a getElementById call          
+      	var marshall_div = document.getElementById('marshall_zoom');
+        var majuro_div = document.getElementById('majuro');
+        var ebeye_div = document.getElementById('ebeye');
+        var jabor_div = document.getElementById("jabor");
+        var arno_div = document.getElementById("arno");
+        var ratak_div = document.getElementById("ratak");
+        var ralik_div = document.getElementById("ralik");
+        var dome_div = document.getElementById("dome");
+          
+        map = new google.maps.Map(document.getElementById('map'), {
+          center: marshall_cord,
+          zoom: 5,
+        });
+         
+          
+//to make automated pan second- use the getElementById var and use the panTo function to pan to the new location
+        google.maps.event.addDomListener(majuro_div, 'click', function() {
+          map.panTo(majuro_cord);
+          map.setZoom(12);
+        });
+        
+        google.maps.event.addDomListener(ebeye_div, 'click', function() {
+          map.panTo(ebeye_cord);
+          map.setZoom(15);
+        });
+          
+        google.maps.event.addDomListener(jabor_div, 'click', function() {
+          map.panTo(jabor_cord);
+          map.setZoom(13);
+        });
+           
+        google.maps.event.addDomListener(arno_div, 'click', function() {
+          map.panTo(arno_cord);
+          map.setZoom(14);
+        });
+          
+        google.maps.event.addDomListener(dome_div, 'click', function() {
+           map.panTo(dome_cord);
+            map.setZoom(15);
+        });
+          
+        google.maps.event.addDomListener(marshall_div, 'click', function() {
+          map.panTo(marshall_cord);
+          map.setZoom(6);
+        });
+          
+        google.maps.event.addDomListener(ratak_div, 'click', function() {
+          map.panTo(ratak_cord);
+          map.setZoom(7);
+        });
+          
+        google.maps.event.addDomListener(ralik_div, 'click', function() {
+          map.panTo(ralik_cord);
+          map.setZoom(7);
+        });  
+          
+        var marker = new google.maps.Marker({
+          position: marshall_cord,
+          map: map,
+          title: "Republic of the Marshall Islands",
+          label: "Republic of the Marshall Islands",
+        });
+          var contentString = 'Lat:' + marshall_cord.lat + 
+              'Long:' + marshall_cord.lng;
+          var infowindow = new google.maps.InfoWindow({
+          content: contentString
+        });
+          marker.addListener('click', function() {
+            //call open on info window with map and marker as parameters
+          infowindow.open(map, marker);
+        });
+//Markers for the islands         
+          
+      }
+    </script>
+    
+    
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB64q5jKJKPHuIfSmR3afirhvi6Gu9cqIU&callback=initMap"
+    async defer></script>
+</div>
+</body>
+</html>

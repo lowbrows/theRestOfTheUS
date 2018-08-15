@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <link rel="stylesheet" type="text/css" href="../island_pages_css.css"/>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>The rest of the us</title>
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="/resources/demos/style.css">
+
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  
+  <script>
+  $( function() {
+    $( "#accordion" ).accordion({
+      collapsible: true
+    });
+  } );
+  </script>
+  
+  <script>
+  $( function() {
+    $( "#tabs" ).tabs();
+  } );
+  </script>
+</head>
+
+<body>
+<h1 id= "header"><p>Puerto Rico:</p>
+	<p>Island of Enchantment</p>
+</h1>
+
+<div id="tabs">
+  <ul class="top_nav">
+    <li class="top_nav_list"><a href="#tabs-1">General Information</a></li>
+    <li class="top_nav_list"><a href= "#return">Main Page</a></li>
+    <li class="top_nav_list"><a href="#History">More Links</a></li>
+    <li id="about_tab" class="top_nav_list"><a href= "#about_content">About</a></li>
+  </ul>
+    
+  <div id="tabs-1">
+      <ul class="sub-menu">
+        <label><h1>General Information</h1></label>
+        <p><a href="https://en.wikipedia.org/wiki/Puerto_Rico">Wikipedia: Puerto Rico</a></p>
+        <p><a href="http://disfrutaorocovis.com/en/historic-sites-2/geographic-center-of-puerto-rico/">Enjoy Puerto Rico</a></p>
+      </ul>
+  </div>
+  
+    <div id="return">
+  	<ul class="sub-menu">
+        <label><h1><a href= "../index.html">Main Page</a></h1></label>
+  	</ul>
+  </div>
+
+    
+  <div id="History">
+    <ul class= "sub-menu">
+        <label><h1>More Links</h1></label>
+        <p>Put more links here</p>
+        <p>And here</p>
+    </ul>
+  </div>
+  
+  <div id="about_content" class= "sub-menu">
+        <p>This site is an effort to raise awareness and also to facilatate exploring the insular islands of the US on google maps and also through the web in general.</p>
+        <p>I hope you enjoy it as much as I enjoyed creating it.</p>
+  </div>
+     
+</div>
+ 
+<div id= "map_container">
+	
+<div id="legend">
+	<div id="accordion">
+  <h3>Population Centers</h3>
+  <div>
+    <p>Click to zoom to cities</p>
+	<ul id="puerto_rico_cities">
+		<li id="san_juan">San Juan</li>
+        <li id="ponce">Ponce</li>
+        <li id="Humacao">Humacao</li>
+	</ul>
+    <p id='puerto_rico'>Click here to zoom out</p>
+  </div>
+  <h3>Section 2</h3>
+  <div>
+    <p>
+    Sed 
+    </p>
+  </div>
+  <h3>Section 3</h3>
+  <div>
+    <p>
+    Nam e
+    </p>
+    <ul>
+      <li>List item one</li>
+      <li>List item two</li>
+    </ul>
+  </div>
+  <h3>Section 4</h3>
+  <div>
+    <p>
+    Cras 
+    </p>
+  </div>
+</div>
+	
+</div>
+
+<!--MAP VIEW DIV-->
+<div id="map"></div>
+
+<!--js for google map -->    
+    <script>
+        
+      var map;
+      function initMap() {
+      	var pantest= {lat: 2.016667, lng: -157.20};
+      	var palmyra = {lat: 5.883611, lng: -162.078333};
+        var san_juan_cord= {lat: 18.406389, lng: -66.063889};
+        var ponce_cord = {lat: 18.001667, lng: -66.606667};
+        var humacao_cord = {lat: 18.149722, lng: -65.8275};
+        var puerto_cent_cord = {lat: 18.222263, lng: -66.430777};
+          
+//to make automated pan first create a var with a getElementById call          
+      	var san_juan_div = document.getElementById('san_juan');
+        var ponce_div = document.getElementById('ponce');
+        var humacao_div = document.getElementById('Humacao')
+        var puerto_rico_div = document.getElementById('puerto_rico')
+        
+        map = new google.maps.Map(document.getElementById('map'), {
+          center: puerto_cent_cord,
+          zoom: 7,
+          
+        });
+//to make automated pan second- use the getElementById var and use the panTo function to pan to the new location
+        google.maps.event.addDomListener(san_juan_div, 'click', function() {
+          map.panTo(san_juan_cord);
+          map.setZoom(12);
+        });
+        
+        google.maps.event.addDomListener(ponce_div, 'click', function() {
+          map.panTo(ponce_cord);
+          map.setZoom(12);
+        });
+          
+        google.maps.event.addDomListener(humacao_div, 'click', function() {
+          map.panTo(humacao_cord);
+          map.setZoom(12);
+        });
+          
+        google.maps.event.addDomListener(puerto_rico_div, 'click', function() {
+          map.panTo(puerto_cent_cord);
+          map.setZoom(7);
+        });
+          
+        var marker = new google.maps.Marker({
+          position: puerto_cent_cord,
+          map: map,
+          title: "Puerto Rico",
+          label: "Puerto Rico",
+        });
+          var contentString = 'Lat:' + puerto_cent_cord.lat + 
+              'Long:' + puerto_cent_cord.lng;
+          var infowindow = new google.maps.InfoWindow({
+          content: contentString
+        });
+          marker.addListener('click', function() {
+            //call open on info window with map and marker as parameters
+          infowindow.open(map, marker);
+        });
+      }
+    </script>
+    
+    
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB64q5jKJKPHuIfSmR3afirhvi6Gu9cqIU&callback=initMap"
+    async defer></script>
+</div>
+</body>
+</html>

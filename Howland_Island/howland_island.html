@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <link rel="stylesheet" type="text/css" href="../island_pages_css.css"/>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>The rest of the US</title>
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="/resources/demos/style.css">
+
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  
+  <script>
+  $( function() {
+    $( "#accordion" ).accordion({
+      collapsible: true
+    });
+  } );
+  </script>
+  
+  <script>
+  $( function() {
+    $( "#tabs" ).tabs();
+  } );
+  </script>
+</head>
+
+<body>
+<h1 id= "header"><p>Howland Island:</p>
+	<p>Part of the Pheonix Islands</p>
+</h1>
+
+<div id="tabs">
+  <ul class="top_nav">
+    <li class="top_nav_list"><a href="#tabs-1">General Information</a></li>
+    <li class="top_nav_list"><a href= "#return">Main Page</a></li>
+    <li class="top_nav_list"><a href="#History">More Links</a></li>
+    <li id="about_tab" class="top_nav_list"><a href= "#about_content">About</a></li>
+  </ul>
+    
+  <div id="tabs-1">
+      <ul class="sub-menu">
+        <label><h1>General Information</h1></label>
+        <p><a href="https://en.wikipedia.org/wiki/Howland_and_Baker_islands">Wikipedia: Howland and Baker Islands EEZ</a></p>
+        <p><a href="https://en.wikipedia.org/wiki/Howland_Island">Wikipedia:Howland Island</a></p>
+      </ul>
+  </div>
+  
+    <div id="return">
+  	<ul class="sub-menu">
+        <label><h1><a href= "../index.html">Main Page</a></h1></label>
+  	</ul>
+  </div>
+
+    
+  <div id="History">
+    <ul class= "sub-menu">
+        <label><h1>More Links</h1></label>
+        <p><a href="http://www.taotaotasi.com/2018/01/connecting-conservation-and-culture-in.html">Connecting Conservation and Culture in Oceania</a></p>
+        <p><a href="https://obamawhitehouse.archives.gov/the-press-office/2014/09/24/fact-sheet-president-obama-designate-largest-marine-monument-world-limit">President Obama to Designate Largest Marine Monument in the World Off-Limits to Development</a></p>
+    </ul>
+  </div>
+  
+  <div id="about_content" class= "sub-menu">
+        <p>This site is an effort to raise awareness and also to facilatate exploring the insular islands of the US on google maps and also through the web in general.</p>
+        <p>I hope you enjoy it as much as I enjoyed creating it.</p>
+  </div>
+     
+</div>
+ 
+<div id= "map_container">
+	
+<div id="legend">
+	<div id="accordion">
+  <h3>Nearby Population Centers</h3>
+  <div>
+    <p>Click below to zoom to population centers</p>
+	<ul id="howland_island">
+		<li id="marshall_islands">Marshall Islands</li>
+        <li id="tuvalu">Tuvalu Island</li>
+        <li id="tokelau">Tokelau Islands</li>
+	</ul>
+    <p id='howland_island_zoom'>Click here to zoom back to Howland</p>
+  </div>
+  <h3>Section2</h3>
+  <div>
+    <p>This is 2</p>
+  </div>
+  <h3>Section 3</h3>
+  <div>
+    <p>Nam e</p>
+    <ul>
+      <li>List item one</li>
+    </ul>
+  </div>
+  <h3>Section 4</h3>
+  <div>
+    <p>Cras </p>
+  </div>
+</div>
+	
+</div>
+
+<!--MAP VIEW DIV-->
+<div id="map"></div>
+
+<!--js for google map -->    
+    <script>
+        
+      var map;
+      function initMap() {
+
+        var howland_cord ={lat:0.806667, lng: -176.616389};
+      	var marshall_islands_cord = {lat: 7.083333, lng: 171.383333};
+        var tuvalu_cord = {lat:-8.520833, lng:179.198611};
+        var tokelau_cord = {lat:-9.166667, lng:-171.833333};
+        
+          
+//to make automated pan first create a var with a getElementById call          
+      	var marshal_island_div = document.getElementById('marshall_islands');
+        var tuvalu_div = document.getElementById('tuvalu');
+        var tokelau_div = document.getElementById('tokelau');
+        var howland_island_div = document.getElementById('howland_island_zoom');
+          
+          
+        map = new google.maps.Map(document.getElementById('map'), {
+          center: howland_cord,
+          zoom: 13,
+          
+        });
+//to make automated pan second- use the getElementById var and use the panTo function to pan to the new location
+        google.maps.event.addDomListener(marshal_island_div, 'click', function() {
+          map.panTo(marshall_islands_cord);
+          map.setZoom(12);
+        });
+        
+        google.maps.event.addDomListener(tuvalu_div, 'click', function() {
+          map.panTo(tuvalu_cord);
+          map.setZoom(12);
+        });
+          
+        google.maps.event.addDomListener(tokelau_div, 'click', function() {
+          map.panTo(tokelau_cord);
+          map.setZoom(12);
+        });
+           
+        google.maps.event.addDomListener(howland_island_div, 'click', function() {
+          map.panTo(howland_cord);
+          map.setZoom(13);
+        });
+          
+        var marker = new google.maps.Marker({
+          position: howland_cord,
+          map: map,
+          title: "Howland Island",
+          label: "Howland Island",
+        });
+          var contentString = 'Lat:' + howland_cord.lat + 
+              'Long:' + howland_cord.lng;
+          var infowindow = new google.maps.InfoWindow({
+          content: contentString
+        });
+          marker.addListener('click', function() {
+            //call open on info window with map and marker as parameters
+          infowindow.open(map, marker);
+        });
+      }
+    </script>
+    
+    
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB64q5jKJKPHuIfSmR3afirhvi6Gu9cqIU&callback=initMap"
+    async defer></script>
+</div>
+</body>
+</html>

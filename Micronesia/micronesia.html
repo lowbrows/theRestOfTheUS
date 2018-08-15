@@ -1,0 +1,243 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <link rel="stylesheet" type="text/css" href="../island_pages_css.css"/>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>The rest of the US</title>
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="/resources/demos/style.css">
+
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  
+  <script>
+  $( function() {
+    $( "#accordion" ).accordion({
+      collapsible: true
+    });
+  } );
+  </script>
+  
+  <script>
+  $( function() {
+    $( "#tabs" ).tabs();
+  } );
+  </script>
+</head>
+
+<body>
+<h1 id= "header"><p>Federated States of Micronesia:</p>
+</h1>
+
+<div id="tabs">
+  <ul class="top_nav">
+    <li class="top_nav_list"><a href="#tabs-1">General Information</a></li>
+    <li class="top_nav_list"><a href= "#return">Main Page</a></li>
+    <li class="top_nav_list"><a href="#History">More Links</a></li>
+    <li id="about_tab" class="top_nav_list"><a href= "#about_content">About</a></li>
+  </ul>
+    
+  <div id="tabs-1">
+      <ul class="sub-menu">
+        <label><h1>General Information</h1></label>
+        <p><a href="https://en.wikipedia.org/wiki/Federated_States_of_Micronesia">Wikipedia: Federated States of Micronesia</a></p>
+        <p><a href="http://www.fsmgov.org/comp_per.html">Background about the compacts of free association</a></p>
+      </ul>
+  </div>
+  
+    <div id="return">
+  	<ul class="sub-menu">
+        <label><h1><a href= "../index.html">Main Page</a></h1></label>
+  	</ul>
+  </div>
+
+    
+  <div id="History">
+    <ul class= "sub-menu">
+        <label><h1>More Links</h1></label>
+        <p><a href="http://uscompact.org/files/index.php?dir=FSM%20Publications%2FCompact%20Documents">Repository of documents relating to the compacts and their re-negotiation in 2002</a></p>
+        <p><a href="http://www.fsmgov.org/">National Government of the Federated States of Micronesia</a></p>
+        <p><a href=" https://en.wikipedia.org/wiki/Nan_Madol">The Nan Madol ruins: Ninth wonder of the world</a></p>
+    </ul>
+  </div>
+  
+  <div id="about_content" class= "sub-menu">
+        <p>This site is an effort to raise awareness and also to facilatate exploring the insular islands of the US on google maps and also through the web in general.</p>
+        <p>I hope you enjoy it as much as I enjoyed creating it.</p>
+  </div>
+     
+</div>
+ 
+<div id= "map_container">
+	
+<div id="legend">
+	<div id="accordion">
+  <h3>Population Centers</h3>
+  <div>
+    <p>Click to zoom to population centers</p>
+	<ul id="american_samoa">
+		<li id="palikir">Palikir</li>
+        <li id="weno">Weno</li>
+        <li id="tofol">Tofol</li>
+        <li id="kolonia">Kolonia</li>
+        <li id="colonia">Colonia</li>
+	</ul>
+    <p id='Micronesia_zoom'>Click here to zoom out</p>
+  </div>
+  <h3>Islands of the Federated States of Micronesia</h3>
+  <div>
+    <p id="micronesia_islands">The major islands of Micronesia</p>
+      <ul>
+          <li id="pohnpei">Pohnpei Islands</li>
+          <li id="chuuk">Chuuk Islands</li>
+          <li id="nan_madol">Pohnpei Island- Nan Madol</li>
+          <li id="kosrae">Kosrae</li>
+          <li id ="yap">Yap Islands</li>
+      </ul>
+  </div>
+  <h3>Section 3</h3>
+  <div>
+    <p>
+    Nam e
+    </p>
+    <ul>
+      <li>List item one</li>
+      <li>List item two</li>
+    </ul>
+  </div>
+  <h3>Section 4</h3>
+  <div>
+    <p>
+    Cras 
+    </p>
+  </div>
+</div>
+	
+</div>
+
+<!--MAP VIEW DIV-->
+<div id="map"></div>
+
+<!--js for google map -->    
+    <script>
+        
+      var map;
+      function initMap() {
+//cities cords
+        var micronesia_cord ={lat:6.916667, lng:158.25};
+      	var palikir_cord= {lat: 6.917222, lng: 158.158889};
+        var weno_cord ={lat:7.45, lng: 151.85};
+      	var tofol_cord = {lat: 5.333, lng: 163};
+        var kolonia_cord= {lat: 6.963889, lng: 158.208056};
+        var colonia_cord = {lat: 9.516667, lng: 138.133333};
+//Islands cords
+        var pohnpei_cord = {lat:6.883333, lng:158.233333};
+        var chuuk_cord = {lat:7.416667, lng:151.783333};
+        var nan_madol_cord = {lat:6.841944, lng:158.332222};
+        var kosrae_cord = {lat:5.316667, lng:162.983333};
+        var yap_cord = {lat:9.533333, lng:138.116667};
+          
+//to make automated pan first create a var with a getElementById call          
+      	var micronesia_div = document.getElementById('Micronesia_zoom');
+        var palikir_div = document.getElementById('palikir');
+        var weno_div = document.getElementById('weno');
+        var tofol_div = document.getElementById("tofol");
+        var kolonia_div = document.getElementById("kolonia");
+        var colonia_div = document.getElementById("colonia");
+        var pohnpei_div = document.getElementById("pohnpei");
+        var chuuk_div = document.getElementById("chuuk");
+        var nan_madol_div = document.getElementById("nan_madol");
+        var kosrae_div = document.getElementById("kosrae"); 
+        var yap_div = document.getElementById("yap");
+          
+          
+        map = new google.maps.Map(document.getElementById('map'), {
+          center: micronesia_cord,
+          zoom: 7,
+        });
+         
+          
+//to make automated pan second- use the getElementById var and use the panTo function to pan to the new location
+        google.maps.event.addDomListener(palikir_div, 'click', function() {
+          map.panTo(palikir_cord);
+          map.setZoom(13);
+        });
+        
+        google.maps.event.addDomListener(weno_div, 'click', function() {
+          map.panTo(weno_cord);
+          map.setZoom(15);
+        });
+          
+        google.maps.event.addDomListener(tofol_div, 'click', function() {
+          map.panTo(tofol_cord);
+          map.setZoom(13);
+        });
+           
+        google.maps.event.addDomListener(kolonia_div, 'click', function() {
+          map.panTo(kolonia_cord);
+          map.setZoom(14);
+        });
+        
+        google.maps.event.addDomListener(colonia_div, 'click', function() {
+          map.panTo(colonia_cord);
+          map.setZoom(15);
+        });
+          
+        google.maps.event.addDomListener(micronesia_div, 'click', function() {
+          map.panTo(micronesia_cord);
+          map.setZoom(6);
+        });
+          
+        google.maps.event.addDomListener(pohnpei_div, 'click', function() {
+          map.panTo(pohnpei_cord);
+          map.setZoom(11);
+        });
+          
+        google.maps.event.addDomListener(chuuk_div, 'click', function() {
+          map.panTo(chuuk_cord);
+          map.setZoom(11);
+        });
+          
+        google.maps.event.addDomListener(nan_madol_div, 'click', function() {
+          map.panTo(nan_madol_cord);
+          map.setZoom(17);
+        });  
+          
+        google.maps.event.addDomListener(kosrae_div, 'click', function() {
+          map.panTo(kosrae_cord);
+          map.setZoom(11);
+        });  
+          
+        google.maps.event.addDomListener(yap_div, 'click', function() {
+          map.panTo(yap_cord);
+          map.setZoom(11);
+        });  
+            
+          
+        var marker = new google.maps.Marker({
+          position: micronesia_cord,
+          map: map,
+          title: "Federated States of Micronesia",
+          label: "Federated States of Micronesia",
+        });
+          var contentString = 'Lat:' + micronesia_cord.lat + 
+              'Long:' + micronesia_cord.lng;
+          var infowindow = new google.maps.InfoWindow({
+          content: contentString
+        });
+          marker.addListener('click', function() {
+            //call open on info window with map and marker as parameters
+          infowindow.open(map, marker);
+        });
+//Markers for the islands         
+          
+      }
+    </script>
+    
+    
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB64q5jKJKPHuIfSmR3afirhvi6Gu9cqIU&callback=initMap"
+    async defer></script>
+</div>
+</body>
+</html>

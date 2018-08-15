@@ -1,0 +1,281 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <link rel="stylesheet" type="text/css" href="../island_pages_css.css"/>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>The rest of the US</title>
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="/resources/demos/style.css">
+
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  
+  <script>
+  $( function() {
+    $( "#accordion" ).accordion({
+      collapsible: true
+    });
+  } );
+  </script>
+  
+  <script>
+  $( function() {
+    $( "#tabs" ).tabs();
+  } );
+  </script>
+</head>
+
+<body>
+<h1 id= "header"><p>American Samoa:</p>
+	<p>Heart of Polynesia</p>
+</h1>
+
+<div id="tabs">
+  <ul class="top_nav">
+    <li class="top_nav_list"><a href="#tabs-1">General Information</a></li>
+    <li class="top_nav_list"><a href= "#return">Main Page</a></li>
+    <li class="top_nav_list"><a href="#History">More Links</a></li>
+    <li id="about_tab" class="top_nav_list"><a href= "#about_content">About</a></li>
+  </ul>
+    
+  <div id="tabs-1">
+      <ul class="sub-menu">
+        <label><h1>General Information</h1></label>
+        <p><a href="https://en.wikipedia.org/wiki/American_Samoa">Wikipedia: American Samoa</a></p>
+        <p><a href="">Add sites</a></p>
+      </ul>
+  </div>
+  
+    <div id="return">
+  	<ul class="sub-menu">
+        <label><h1><a href= "../index.html">Main Page</a></h1></label>
+  	</ul>
+  </div>
+
+    
+  <div id="History">
+    <ul class= "sub-menu">
+        <label><h1>More Links</h1></label>
+        <p><a href="http://americansamoa.southpacific.org/islands/aunuuisland.html">American Samoa Travel Guide</a></p>
+        <p>And here</p>
+    </ul>
+  </div>
+  
+  <div id="about_content" class= "sub-menu">
+        <p>This site is an effort to raise awareness and also to facilatate exploring the insular islands of the US on google maps and also through the web in general.</p>
+        <p>I hope you enjoy it as much as I enjoyed creating it.</p>
+  </div>
+     
+</div>
+ 
+<div id= "map_container">
+	
+<div id="legend">
+	<div id="accordion">
+  <h3>Population Centers</h3>
+  <div>
+    <p>Click to zoom to population centers</p>
+	<ul id="american_samoa">
+		<li id="pago_pago">Pago Pago</li>
+        <li id="tafuna">Tafuna</li>
+        <li id="leone">Leone</li>
+	</ul>
+    <p id='american_samoa_zoom'>Click here to zoom out</p>
+  </div>
+  <h3>Islands of American Samoa</h3>
+  <div>
+    <p id="american_samoa_islands">Click to mark the Islands of American Samoa</p>
+      <ul>
+          <li id="tutuila">Tutuila</li>
+          <li id="tau">Tau</li>
+          <li id="ofu_olosega">Ofu-Olosega</li>
+          <li id="aunuu">Aunuu</li>
+          <li id ="swains">Swains Island- Disputed</li>
+          <li id="rose">Rose Atoll</li>
+      </ul>
+  </div>
+  <h3>Section 3</h3>
+  <div>
+    <p>
+    Nam e
+    </p>
+    <ul>
+      <li>List item one</li>
+      <li>List item two</li>
+    </ul>
+  </div>
+  <h3>Section 4</h3>
+  <div>
+    <p>
+    Cras 
+    </p>
+  </div>
+</div>
+	
+</div>
+
+<!--MAP VIEW DIV-->
+<div id="map"></div>
+
+<!--js for google map -->    
+    <script>
+        
+      var map;
+      function initMap() {
+      	var pantest= {lat: 2.016667, lng: -157.20};
+        var pago_cord ={lat:-14.279444, lng: -170.700556};
+      	var tafuna_cord = {lat: -14.335833, lng: -170.72};
+        var leone_cord= {lat: -14.343889, lng: -170.785};
+        var american_samoa_cord = {lat: -14.3, lng: -170.7};
+        var tutuila_cord = {lat:-14.295, lng:-170.7};
+        var tau_cord = {lat:-14.233333, lng:-169.466667};
+        var ofu_olosega_cord = {lat:-14.175, lng:-169.618};
+        var aunuu_cord = {lat:-14.284083, lng:-170.560417};
+        var swains_cord = {lat:-11.055556, lng:-171.077778};
+        var rose_cord = {lat:-14.546667, lng:-168.151944};
+          
+//to make automated pan first create a var with a getElementById call          
+      	var pago_div = document.getElementById('pago_pago');
+        var tafuna_div = document.getElementById('tafuna');
+        var leone_div = document.getElementById('leone');
+        var american_samoa_div = document.getElementById("american_samoa_zoom");
+        var tutuila_div = document.getElementById("tutuila");
+        var tau_div = document.getElementById("tau");
+        var ofu_olosega_div = document.getElementById("ofu_olosega");
+        var aunuu_div = document.getElementById("aunuu");
+        var swains_div = document.getElementById("swains");
+        var rose_div = document.getElementById("rose"); 
+        var islands_div = document.getElementById("american_samoa_islands");
+          
+          
+        map = new google.maps.Map(document.getElementById('map'), {
+          center: american_samoa_cord,
+          zoom: 7,
+        });
+         
+          
+//to make automated pan second- use the getElementById var and use the panTo function to pan to the new location
+        google.maps.event.addDomListener(pago_div, 'click', function() {
+          map.panTo(pago_cord);
+          map.setZoom(13);
+        });
+        
+        google.maps.event.addDomListener(tafuna_div, 'click', function() {
+          map.panTo(tafuna_cord);
+          map.setZoom(14);
+        });
+          
+        google.maps.event.addDomListener(leone_div, 'click', function() {
+          map.panTo(leone_cord);
+          map.setZoom(13);
+        });
+           
+        google.maps.event.addDomListener(american_samoa_div, 'click', function() {
+          map.panTo(american_samoa_cord);
+          map.setZoom(10);
+        });
+        
+        google.maps.event.addDomListener(tutuila_div, 'click', function() {
+          map.panTo(tutuila_cord);
+          map.setZoom(13);
+        });
+          
+        google.maps.event.addDomListener(tau_div, 'click', function() {
+          map.panTo(tau_cord);
+          map.setZoom(11);
+        });
+          
+        google.maps.event.addDomListener(ofu_olosega_div, 'click', function() {
+          map.panTo(ofu_olosega_cord);
+          map.setZoom(11);
+        });
+          
+        google.maps.event.addDomListener(aunuu_div, 'click', function() {
+          map.panTo(aunuu_cord);
+          map.setZoom(11);
+        });
+          
+        google.maps.event.addDomListener(swains_div, 'click', function() {
+          map.panTo(swains_cord);
+          map.setZoom(11);
+        });  
+          
+        google.maps.event.addDomListener(rose_div, 'click', function() {
+          map.panTo(rose_cord);
+          map.setZoom(11);
+        });  
+          
+        var marker = new google.maps.Marker({
+          position: american_samoa_cord,
+          map: map,
+          title: "American Samoa",
+          label: "American Samoa",
+        });
+          var contentString = 'Lat:' + american_samoa_cord.lat + 
+              'Long:' + american_samoa_cord.lng;
+          var infowindow = new google.maps.InfoWindow({
+          content: contentString
+        });
+          marker.addListener('click', function() {
+            //call open on info window with map and marker as parameters
+          infowindow.open(map, marker);
+        });
+//Markers for the islands         
+          var tutuila_marker = new google.maps.Marker({
+          position: tutuila_cord,
+              map:map,
+          label: "Tutuila",
+          draggable: false,
+          animation: google.maps.Animation.DROP,
+        }); 
+        
+        var tau_marker = new google.maps.Marker({
+          position: tau_cord,
+            map:map,
+          label: "Tau",
+          draggable: false,
+          animation: google.maps.Animation.DROP,
+        });
+          
+        var ofu_olosega_marker = new google.maps.Marker({
+          position: ofu_olosega_cord,
+            map:map,
+          label: "Ofu-Olosega",
+          draggable: false,
+          animation: google.maps.Animation.DROP,
+        });  
+          
+        var aunuu_marker = new google.maps.Marker({
+          position: aunuu_cord,
+            map:map,
+          label: "Aunuu",
+          draggable: false,
+          animation: google.maps.Animation.DROP,
+        });
+          
+        var swains_marker = new google.maps.Marker({
+          position: swains_cord,
+            map:map,
+          label: "Swains Island",
+          draggable: false,
+          animation: google.maps.Animation.DROP,
+        });  
+          
+        var rose_marker = new google.maps.Marker({
+          position: rose_cord,
+            map:map,
+          label: "Rose Atoll",
+          draggable: false,
+          animation: google.maps.Animation.DROP,
+        });
+          
+      }
+    </script>
+    
+    
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB64q5jKJKPHuIfSmR3afirhvi6Gu9cqIU&callback=initMap"
+    async defer></script>
+</div>
+</body>
+</html>
