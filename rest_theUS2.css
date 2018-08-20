@@ -92,3 +92,7 @@ label.h1 {
   position: fixed;
     bottom: 0;
 };
+
+.main_li {
+    font-size: 1.5em;
+}

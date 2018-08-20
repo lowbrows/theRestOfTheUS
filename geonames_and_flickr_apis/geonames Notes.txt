@@ -1,0 +1,37 @@
+The NE bounding box coordinate is: (-0.09445206708301536, -159.67698668593596)
+The SW bounding box coordinate is: (-0.6388736565000679, -160.356347314064)
+the NE corner lat is: -0.09445206708301536
+the NE corner lng is: -159.67698668593596
+
+https://code.jquery.com/jquery-1.10.2.js
+
+
+var infoWindow = new google.maps.InfoWindow({
+content: '<p>' + 'Wikipedia Url: ' + "<a href= 'https://" + data.geonames[i].wikipediaUrl  + "'>link</a>" + '<br>'+ '<p>Summary: ' + data.geonames[i].summary + '<p>' + '<br>'});
+
+google.maps.event.addListener(marker, 'click', function() {
+infoWindow.open(map, marker);
+});
+
+content string method:
+var contentString = 'Wikipedia Url: ' + data.geonames[i].wikipediaUrl + 'Summary: ' + data.geonames[i].summary;
+
+
+content HTML method:
+content: '<p>' + 'Wikipedia Url: ' + "<a href= 'https://" + data.geonames[i].wikipediaUrl  + "'>link</a>" + '<br>'+ '<p>Summary: ' + data.geonames[i].summary + '<p>' + '<br>'});
+
+///erased data----
+var contentString = 'Wikipedia Url: ' + data.geonames[i].wikipediaUrl + 'Summary: ' + data.geonames[i].summary;
+                        
+                            
+                            var infoWindow1 = new google.maps.InfoWindow({
+                                    content: '<p>' + 'Wikipedia Url: ' + "<a href= 'https://" + data.geonames[i].wikipediaUrl  + "'>link</a>" + '<br>'+ '<p>Summary: ' + data.geonames[i].summary + '<p>' + '<br>'});
+                            
+                             console.log(infoWindow1.getContent());
+                            
+                            google.maps.event.addListener(marker, 'click', function() {
+                                infoWindow1.open(marker, marker);
+                            }());
+
+
+ 

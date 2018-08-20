@@ -1,0 +1,41 @@
+After files in the working directory(thats the directory we are editing in brackets) are changed--->
+
+---This cd move to the branch that we created
+$cd D:\Users\Owner\Desktop\REST_theUS\theRestOfTheUS
+
+then--make sure that we are in the right dir-- should have a file with a .git extension
+$ls
+
+---next check what brack we are in--
+$git branch
+$$---returns-- 
+* gh-pages
+  master
+---
+
+--more interesting git commands---
+--
+$git remote -v
+$$ ----returns----
+origin  https://github.com/lowbrows/theRestOfTheUS.git (fetch)
+origin  https://github.com/lowbrows/theRestOfTheUS.git (push)
+-----
+
+---status returns the status of the working tree
+$git status
+$$ --returns---
+On branch gh-pages
+nothing to commit, working tree clean
+-----
+---next copy the updated files from the working dir (thats the directory we are editing in brackets) also add the recursive ----parameter, -r, to the function call..
+---- the 
+$cp -r D:\Users\Owner\Desktop\REST_theUS/* .
+$git add .
+$git commit -a -m "the 2nd update."
+$git push origin gh-pages
+$$--this will push the changes made in the copied folders to the master repository on github
+
+
+***here is the command to create a new branch in the repository***
+---This creates the new branch- gh-pages  -- this is the master banch for now because it is the only one
+$git checkout -b gh-pages

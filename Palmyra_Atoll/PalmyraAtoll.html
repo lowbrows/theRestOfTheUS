@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <link rel="stylesheet" type="text/css" href="palmyra_css.css"/>
+  <link rel="stylesheet" type="text/css" href="../island_pages_css.css"/>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>The rest of the us</title>
@@ -32,22 +32,26 @@
 </h1>
 
 <div id="tabs">
-  <ul class="top_nav">
-    <li class="top_nav_list"><a href="#tabs-1">General Information</a></li>
-    <li class="top_nav_list"><a href= "#return">Main Page</a></li>
+  <ul class="top_nav">\
+    <li class="top_nav_list"><a href= "#return">Main/Site Nav</a></li>  
+    <li class="top_nav_list"><a href="#tabs-1">General Info Links</a></li>
     <li class="top_nav_list"><a href="#History">More Links</a></li>
-
   </ul>
-  <div id="tabs-1">
-    <p><a href="https://www.nature.org/ourinitiatives/regions/northamerica/unitedstates/hawaii/palmyraatoll/index.htm">The Nature Conservancy Palmyra Atoll Research</a></p>
-  	<p><a href="https://en.wikipedia.org/wiki/Palmyra_Atoll">Wikipedia: Palmyra Atoll</a></p>
-  </div>
-  
+    
     <div id="return">
-  	<ul>
-  		<li><a href= "../index.html">Main Page</a></li>
+  	<ul class="sub-menu" style = "display:inline, table-column:0">
+        <li class="main_li"><a href="../index.html">Home</a></li>
+        <li class="main_li"><a href="../HowToUse/howToUse.html">How to use the site</a></li>
+        <li class="main_li"><a href= "../About/about.html">About</a></li>
+        <li class="main_li"><a href="../Support/support.html">Support</a></li>
   	</ul>
+  </div>    
+    
+  <div id="tabs-1">
+    <p><a href="https://www.nature.org/ourinitiatives/regions/northamerica/unitedstates/hawaii/palmyraatoll/index.htm" target="_blank">The Nature Conservancy Palmyra Atoll Research</a></p>
+  	<p><a href="https://en.wikipedia.org/wiki/Palmyra_Atoll" target="_blank">Wikipedia: Palmyra Atoll</a></p>
   </div>
+
 
     
   <div id="History">
@@ -76,17 +80,20 @@
     Sed 
     </p>
   </div>
-  <h3>Section 3</h3>
-  <div>
-    <p>
-    Nam e
-    </p>
-    <ul>
-      <li>List item one</li>
-      <li>List item two</li>
-      <li>List item three</li>
-    </ul>
+        
+  <h3>Wikipedia Places</h3>
+  <div id="wikiGet">
+    <p>Call is based on the bounds of the map.</p>
+    <table>
+      <tr>
+        <td>Number of results</td>
+        <td><input type="text" id="txtResults" /></td>
+      </tr>  
+    </table>
+      <input type="button" id="btnGetWiki" value="Get Wikipedia Results">
+<br /><br />
   </div>
+        
   <h3>Section 4</h3>
   <div>
     <p>
@@ -160,6 +167,62 @@
             //call open on info window with map and marker as parameters
           infowindow.open(map, marker);
         });
+          
+           $(document).ready(function () {
+            //starts the process by clicking the btnGetWiki button
+            $("#btnGetWiki").click(function () {
+                var requestData = $('#txtResults').val();
+                ///var resultElement = $('#resultDiv');
+                
+                //init vars for bounding box here to plug into api call????
+                var map_south_lat = map.getBounds();
+                var bounds_ne = map_south_lat.getNorthEast();
+                var bounds_sw = map_south_lat.getSouthWest();
+                var ne_lat = bounds_ne.lat();
+                var ne_lng = bounds_ne.lng();
+                var sw_lat = bounds_sw.lat();
+                var sw_lng = bounds_sw.lng();
+                
+                $.ajax({
+                    url: 'http://api.geonames.org/wikipediaBoundingBoxJSON',
+                    method: 'get',
+                    data: {north:ne_lat , south:sw_lat , east:ne_lng , west:sw_lng , maxRows:requestData , username:'lowbrowsr'},
+                    datetype: 'json',
+                    success: function (data) {
+                        
+                        for (var i=0; i < data.geonames.length; i++) {
+                            
+                            var cord= {lat:data.geonames[i].lat, lng: data.geonames[i].lng};
+                            
+                            var marker = new google.maps.Marker({
+                            position: cord,
+                            map: map,
+                            animation: google.maps.Animation.DROP,
+                            });
+                            load_info(marker,data.geonames[i]);
+                            
+                            ///Insert erased data here if...
+                            
+                            
+                            
+                    ///     resultElement.append('<p>' + 'Wikipedia Url: ' + "<a href= 'https://" + 
+                     ///                      data.geonames[i].wikipediaUrl  + "'>link</a>" +
+                       ///                    '<br>'+ '<p>Summary: ' + data.geonames[i].summary + '<p>' + '<br>');
+                        }
+                        console.log(data.geonames.length);
+                    }
+                });
+            });
+        });
+          
+          function load_info(marker, data) {
+              var infowindow = new google.maps.InfoWindow({
+          content: '<p>' + 'Wikipedia Url: ' + "<a href= 'https://" + data.wikipediaUrl  + "' target='_blank'>link</a>" + '<br>'+ '<p>Summary: ' + data.summary + '<p>' + '<br>'
+        });
+              marker.addListener('click', function() {
+          infowindow.open(map, marker);
+        });
+          }
       }
     </script>
     

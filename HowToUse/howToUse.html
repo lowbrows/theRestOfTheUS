@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <link rel="stylesheet" type="text/css" href="../island_pages_css.css"/>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>The rest of the US</title>
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<!--  <link rel="stylesheet" href="/resources/demos/style.css"> -->
+
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  
+  <script>
+  $( function() {
+    $( "#tabs" ).tabs();
+  } );
+  </script>
+</head>
+
+<body>
+<h1 id= "header"><p>How to Use: The Rest of the US</p>
+
+</h1>
+
+<div id="tabs">
+  <ul class="top_nav">
+    <li class="top_nav_list"><a href= "#return">Main Page</a></li>
+  </ul>
+    
+  
+    <div id="return">
+  	<ul class="sub-menu" style = "display:inline, table-column:0">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="../HowToUse/howToUse.html">How to use the site</a></li>
+        <li><a href= "../About/about.html">About</a></li>
+        <li><a href="../Support/support.html">Support</a></li>
+  	</ul>
+  </div>
+     
+</div>
+ 
+<div class="content">
+    <h3>Home/ Main Map</h3>
+    <p>The main map has 3 tabs at the top, <b>Inhabited Islands</b>, <b>Uninhabited Islands</b>, and <b>Associated States</b>.  Click on these tabs and markers will drop on the islands that are associated with each type.  There are 5 inhabited Islands, 8 uninhabited islands, and 3 associated states.  In the menu of each tab links will appear that lead to a seperate page for each of the areas.  </p>
+    <h3>The island pages</h3>
+    <p>On the individual island pages I have centered the map of the geographic center of the island or chain of islands but some of the territories, like the Northern Mariana Islands, are very spread out with many tiny islands so it was impossible to keep them within the bounds of a single map and still see a significant number of them due to the small scale.  This was the reason to add the accordian dropdown on the right of the map. </p>
+     <h3>The legend/accordian</h3>
+    <p>On the right there is an accordian legend. The first two dropdowns are reserved to navigate to points of interest, population centers, individual islands, or any other grouping of features that makes sense to for that place.  Click on any of these places and the map will scroll to it and adjust the zoom accordingly.</p>  
+    
+    <h3>Wikipedia Places</h3>
+    <p>Below this is the Wikipedia Places tab.  Open this tab and you will find a text box and a button.If you want to limit the number of results enter the number of results you want and click the "Get Wikipedia Results" button.  After a few seconds the map will populate with wikipedia articles that fall within the bounds of the map.  Feel free to scroll anywhere in the world on this map as the function will still work.  This is why I added the option to limit result because some areas of the earth, not necessarily the regions I'm focused on here, can have a ton of results.  It will only get articles that have been geo-referenced.  Thanks to www.geonames.org for the cool API!!</p> 
+    
+<br>
+    <h3>In the future</h3>
+    <p>The last dropdown in the accordian/legend is reserved for the future.  Check back in a few months and see....</p>
+</div>
+    
+    
+</body>
+</html>

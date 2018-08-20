@@ -1,0 +1,45 @@
+<!doctype html>
+<html>
+
+<head>
+    
+    </head>
+
+    
+<body>
+    
+<script>
+    for (i=0; i<15; i++) {
+     var markername = 'm'+i;
+        console.log(markername);
+    }
+    
+    
+    var td;
+    for (var t=1;t<8;t++){
+        td = document.getElementById('td'+t);
+        if (typeof window.addEventListener==='function'){
+                td.addEventListener('click',function(){
+                    console.log(td);
+            })}
+ }
+    
+    
+    var td;
+for (var t = 1; t < 8; t++){
+    td = document.getElementById('td'+t);
+    if (typeof window.addEventListener === 'function'){
+        (function (_td) {
+            td.addEventListener('click', function(){
+                console.log(_td);
+            });
+        })(td);
+    }
+}
+    
+    
+    </script>
+    
+</body>
+    
+</html>

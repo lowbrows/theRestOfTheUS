@@ -2,6 +2,8 @@
 <html lang="en">
 
 <head>
+<title>The Rest of the US: Web map series focused on the Unincorporated insular territories of the United States</title>
+<meta name="description" content="Web map series focused on the Unincorporated insular territories of the United States and also it's associated states. Puerto Rico, US Virgin Islands, Guam, Northern Mariana Islands, American Samoa, Baker Island, Howland Island, Jarvis Island, Johnston Atoll, Kingman Reef, Midway Atoll, Navassa Island, Palmyra Atoll, Federated States of Micronesia, Republic of the Marshall Islands, Republic of Palau">
   <link rel="stylesheet" type="text/css" href="rest_theUS2.css" />
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -37,18 +39,18 @@
 <div id="tabs">
   <ul class="top_nav">
     <!--<label><h1>Overview</h1></label>-->
-    <li class="top_nav_list"><a href="#tabs-1">General Information</a></li>
+    <li class="top_nav_list"><a href= "#return">Main/Site Nav</a></li>
     <li id= "inhab_id" class="top_nav_list"><a href="#Inhabited_islands">Inhabited Islands</a></li>
     <li id="unhab_id" class="top_nav_list"><a href="#Uninhabited_Islands">Uninhabited Islands</a></li>
     <li id= "assoc_id" class="top_nav_list"><a href="#tabs-4">Associated States</a></li>
   </ul>
-  <div id="tabs-1">
-      <ul class="sub-menu">
-        <label><h1>General Information</h1></label>
-        <p><a href="https://www.doi.gov/oia/islands/acquisitionprocess">Department of the Interior: Acquisition Process</a></p>
-        <p><a href="https://en.wikipedia.org/wiki/Territories_of_the_United_States">Wikipedia: Territories of the US</a></p>
-      </ul>
-    <!--<p class="tab_header2">General Information</p>-->
+<div id="return">
+  	<ul class="sub-menu" style = "display:inline, table-column:0,">
+        <li class="main_li"><a href="../index.html">Home</a></li>
+        <li class="main_li"><a href="../HowToUse/howToUse.html">How to use the site</a></li>
+        <li class="main_li"><a href= "../About/about.html">About</a></li>
+        <li class="main_li"><a href="../Support/support.html">Support</a></li>
+  	</ul>
   </div>
   
   <div id="Inhabited_islands">
@@ -95,36 +97,35 @@
 	
 <div id="legend">
 	<div id="accordion">
-  <h3>Population Centers</h3>
+<h3>General Info Links/ Dept of the Interior</h3>
   <div>
-    <p id="pop_center_list"><a href="https://en.wikipedia.org/wiki/San_Juan,_Puerto_Rico">San Juan</a></p>
-    <p id="pop_center_list"><a href="https://www.nps.gov/sari/index.htm">Charlotte Amalie</a></p>
-    <p id="pop_center_list"><a href="https://en.wikipedia.org/wiki/Palikir">Palikir</a></p>
-  </div>
-  <h3>Zoom to Regions</h3>
+    <ul>
+      <li><a href="https://www.doi.gov/oia/islands/acquisitionprocess" target="_blank">Department of the Interior: Acquisition Process</a></li>
+      <li><a href="https://en.wikipedia.org/wiki/Territories_of_the_United_States" target="_blank">Wikipedia: Territories of the US</a></li>
+    </ul>
+  </div>    
+   <h3>Zoom to Regions</h3>
   <div>
     <p id = "caribbean_zoom">Caribbean</p>
     <p id= "sp_zoom">South Pacific</p>
     <p id = "np_zoom">North Pacific</p>
-  </div>
-  <h3>Section 3</h3>
+  </div>       
+        
+  <h3>Population Centers</h3>
   <div>
-    <p>
-    Nam e
-    </p>
-    <ul>
-      <li>List item one</li>
-      <li>List item two</li>
-      <li>List item three</li>
-    </ul>
+    <p id="pop_center_list"><a href="https://en.wikipedia.org/wiki/San_Juan,_Puerto_Rico" target="_blank">San Juan</a></p>
+    <p id="pop_center_list"><a href="https://www.nps.gov/sari/index.htm" target="_blank">Charlotte Amalie</a></p>
+    <p id="pop_center_list"><a href="https://en.wikipedia.org/wiki/Palikir" target="_blank">Palikir</a></p>
   </div>
+  
+  
   <h3>Section 4</h3>
   <div>
     <p>
-    Cras 
+    Add 
     </p>
     <p>
-    Suspendi
+    Links
     </p>
   </div>
 </div>
@@ -187,136 +188,102 @@
 //Inhabited MARKERS
         var us_virgin_marker = new google.maps.Marker({
           position: us_virgin_cord,
-          title: "US VIRGIN ISLANDS",
-          label: "US VIRGIN ISLANDS",
           draggable: false,
           animation: google.maps.Animation.DROP,
         });
           
         var pr_marker = new google.maps.Marker({
           position: puerto_rico_cord,
-          title: "Puerto Rico",
-          label: "Puerto Rico",
           draggable: false,
           animation: google.maps.Animation.DROP,
         });
  
         var guam_marker = new google.maps.Marker({
           position: guam_cord,
-          title: "Guam",
-          label: "Guam",
           draggable: false,
           animation: google.maps.Animation.DROP,
         });
           
         var northern_mar_marker = new google.maps.Marker({
           position: northern_mar_cord,
-          title: "Northern Mariana Islands",
-          label: "Northern Mariana Islands",
           draggable: false,
           animation: google.maps.Animation.DROP,
         });
           
         var american_samoa_marker = new google.maps.Marker({
           position: american_samoa_cord,
-          title: "American Samoa",
-          label: "American Samoa",
           draggable: false,
           animation: google.maps.Animation.DROP,
         });
 //Uninhabited Markers
         var palmyra_marker = new google.maps.Marker({
           position: palmyra_cord,
-          title: "Palmyra Atoll",
-          label: "Palmyra Atoll",
           draggable: false,
           animation: google.maps.Animation.DROP,
         });  
         
         var baker_marker = new google.maps.Marker({
           position: baker_cord,
-          title: "Baker Island",
-          label: "Baker Island",
           draggable: false,
           animation: google.maps.Animation.DROP,
         });
           
         var howland_marker = new google.maps.Marker({
           position: howland_cord,
-          title: "Howland Island",
-          label: "Howland Island",
           draggable: false,
           animation: google.maps.Animation.DROP,
         });
           
         var navassa_marker = new google.maps.Marker({
           position: navassa_cord,
-          title: "Navassa Island",
-          label: "Navassa Island",
           draggable: false,
           animation: google.maps.Animation.DROP,
         });
           
         var midway_marker = new google.maps.Marker({
           position: midway_cord,
-          title: "Midway Atoll",
-          label: "Midway Atoll",
           draggable: false,
           animation: google.maps.Animation.DROP,
         });
           
         var kingman_marker = new google.maps.Marker({
           position: kingman_cord,
-          title: "Kingman Reef",
-          label: "Kingman Reef",
           draggable: false,
           animation: google.maps.Animation.DROP,
         });
           
         var johnston_marker = new google.maps.Marker({
           position: johnston_cord,
-          title: "Johnston Atoll",
-          label: "Johnston Atoll",
           draggable: false,
           animation: google.maps.Animation.DROP,
         });
           
         var jarvis_marker = new google.maps.Marker({
           position: jarvis_cord,
-          title: "Jarvis Island",
-          label: "Jarvis Island",
           draggable: false,
           animation: google.maps.Animation.DROP,
         });
           
         var swains_marker = new google.maps.Marker({
           position: swains_cord,
-          title: "Swains Island",
-          label: "Swains Island",
           draggable: false,
           animation: google.maps.Animation.DROP,
         });
 //Associated States markers
         var micronesia_marker = new google.maps.Marker({
           position: micronesia_cord,
-          title: "Federated States of Micronesia",
-          label: "Federated States of Micronesia",
           draggable: false,
           animation: google.maps.Animation.DROP,
         });  
          
         var marshall_marker = new google.maps.Marker({
           position: marshall_cord,
-          title: "Republic of the Marshall Islands",
-          label: "Republic of the Marshall Islands",
           draggable: false,
           animation: google.maps.Animation.DROP,
         });
           
         var palau_marker = new google.maps.Marker({
           position: palau_cord,
-          title: "Republic of Palau",
-          label: "Republic of Palau",
           draggable: false,
           animation: google.maps.Animation.DROP,
         }); 
@@ -407,7 +374,7 @@
     
 <div class="footer">
     <footer>
-        <p>Please email me at: spencerroddan@yahoo.com with any questions, links, pages you would like to add, or anything else you want to contribute. Remember to put the site name in the subject.  Thanks<a href="About/about_therestoftheus.html">About</a></p>
+        <p>Please email me at: spencerroddan@yahoo.com with any questions, links, pages you would like to add, or anything else you want to contribute. Remember to put the site name in the subject.  Thanks<a href="About/about.html"About/about_therestoftheus.html"">About</a></p>
     
     </footer>
 </div>

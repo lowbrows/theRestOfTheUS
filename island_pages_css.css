@@ -4,15 +4,15 @@
         border-color:black;
     }
 
-tabs {
+#tabs {
 	width: 100%;
 }
 
 /* Always set the map height explicitly to define the size of the div
  * element that contains the map. */
 #map {
-  background-color: grey;
-	float: left;
+  background-color: gold;
+    float: left;
   height: 90%;
   width: 85%;
   border-width: 0px;
@@ -26,34 +26,33 @@ html, body {
 }
 
 .top_nav {
-    display:flex;
+    width:100%;
+    display: flex;
     padding: 0px;
-    background-color: lightskyblue;
     border-bottom-color: black;
-    border-width: 2px;
-    
+    border-width: 0px;  
 }
+
 ul p {
     padding:0px;
     border:0px;
     margin:0px;
 }
+
 .top_nav_list{
     display: inline-flex;
     padding-right:60px;
     padding-left:10px;
-    font-size:18px;
+    font-size:15px;
 }
 
-#about_tab {
-    left:25%;
-};
 
 h1 p {
-	height: 1px;
+    display:inline-block;
+	height: 5px;
 	text-align: center;
-	border-width:3px;
-	padding: 2px;
+	border-width:0px;
+	padding: 0px;
 }
  
 #legend {
@@ -67,22 +66,24 @@ h3 {
 }
 
 ul.sub-menu {
+  margin:0px;
+  padding:0px;
+  border:0px;
   columns: 2;
   -webkit-columns: 2;
   -moz-columns: 2;
+    height: 8%;
 }
 
 .sub-menu {
     height: 8%;
     background-color:#C3FF00;
     margin:0px;
-    padding:2px;
+    padding:0px;
+    border:0px;
+    width:100%;
 }
 
-label.h1 {
-    margin: 0px;
-    padding: 0px;
-}
 
 .sub-menu li {
     list-style-type: none;
@@ -91,8 +92,19 @@ label.h1 {
 }
 
 #header {
-    margin:0px;
+    font-size: 1.6em;
+    margin-top:1px;
+    margin-bottom:0px;
     padding:0px;
     text-align: center;
     line-height: 2px;
+    background-color: lightblue;
+}
+
+.content {
+    width:85%;
+}
+
+.main_li {
+    font-size: 1.5em;
 }

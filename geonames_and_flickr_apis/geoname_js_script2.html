@@ -11,19 +11,34 @@
             $("#btnGetWiki").click(function () {
                 var requestData = $('#txtResults').val();
                 var resultElement = $('#resultDiv');
+                
                 //init vars for bounding box here to plug into api call????
+                var map_south_lat = map.getBounds();
+                var bounds_ne = map_south_lat.getNorthEast();
+                var bounds_sw = map_south_lat.getSouthWest();
+                var ne_lat = bounds_ne.lat();
+                var ne_lng = bounds_ne.lng();
+                var sw_lat = bounds_sw.lat();
+                var sw_lng = bounds_sw.lng();
                 
                 $.ajax({
                     url: 'http://api.geonames.org/wikipediaBoundingBoxJSON',
                     method: 'get',
-                    data: {north:-13.0 , south:-15 , east:-169.0 , west:-171.0 , maxRows:requestData , username:'lowbrowsr'},
+                    data: {north:ne_lat , south:sw_lat , east:ne_lng , west:sw_lng , maxRows:requestData , username:'lowbrowsr'},
                     datetype: 'json',
                     success: function (data) {
                         
                         for (var i=0; i < data.geonames.length; i++) {
-                            resultElement.append('<p>' + 'Wikipedia Url: ' + "<a href= 'https://" + 
-                                           data.geonames[i].wikipediaUrl  + "'>link</a>" +
-                                           '<br>'+ '<p>Summary: ' + data.geonames[i].summary + '<p>' + '<br>');
+                            
+                            var cord= {lat:data.geonames[i].lat, lng: data.geonames[i].lng},
+                            var marker = new google.maps.Marker({
+                            position: cord,
+                            map: map,
+                            });
+                            
+                    ///     resultElement.append('<p>' + 'Wikipedia Url: ' + "<a href= 'https://" + 
+                     ///                      data.geonames[i].wikipediaUrl  + "'>link</a>" +
+                       ///                    '<br>'+ '<p>Summary: ' + data.geonames[i].summary + '<p>' + '<br>');
                         }
                         console.log(data.geonames.length);
                     }
