@@ -184,7 +184,7 @@
                 var sw_lng = bounds_sw.lng();
                 
                 $.ajax({
-                    url: 'http://api.geonames.org/wikipediaBoundingBoxJSON',
+                    url: 'https://secure.geonames.org/wikipediaBoundingBoxJSON',
                     method: 'get',
                     data: {north:ne_lat , south:sw_lat , east:ne_lng , west:sw_lng , maxRows:requestData , username:'lowbrowsr'},
                     datetype: 'json',
