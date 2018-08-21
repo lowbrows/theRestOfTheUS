@@ -202,7 +202,7 @@ label.h1 {
 }
 
 .footer {
-  position: absolute;
+  position: fixed;
     bottom: 0;
 };
 
@@ -310,7 +310,7 @@ label.h1 {
 }
 
 .footer {
-  position: absolute;
+  position: fixed;
     bottom: 0;
 };
 
