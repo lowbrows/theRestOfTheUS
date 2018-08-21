@@ -1,4 +1,6 @@
-#map_container {
+
+@media (min-width: 541px){
+  #map_container {
     	height: 100%;
     	border-width: 10px;
         border-color:black;
@@ -95,4 +97,212 @@ label.h1 {
 
 .main_li {
     font-size: 1.5em;
+}
+}
+
+
+@media (max-width: 540px) and (min-width: 400px){
+  /* Smaller view stuff goes here. */
+    #map_container {
+    	height: 100%;
+    	border-width: 10px;
+        border-color:black;
+    }
+
+#header {
+    margin:0px;
+    padding:0px;
+    text-align: center;
+    line-height: 2px;
+};
+
+.top_nav {
+    display:flex;
+    padding: 7px;
+    background-color: lightskyblue;
+    border-bottom-color: black;
+    border-width: 3px;
+    
+}
+
+.top_nav_list{
+    display: inline-flex;
+    padding-right:60px;
+    padding-left:10px;
+    font-size:18px;
+}
+
+tabs {
+	width: 100%;
+}
+
+/* Always set the map height explicitly to define the size of the div
+ * element that contains the map. */
+#map {
+  background-color: grey;
+  float: left;
+  height: 70%;
+  width: 80%;
+  border-width: 2px;
+  border-color:black;
+/* Optional: Makes the sample page fill the window. */
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+h1 p {
+	height: 20%;
+	text-align: center;
+	border-width:0px;
+	padding: 0px;
+}
+ 
+#legend {
+	height: 70%;
+	width: 20%;
+	float: right;
+}
+
+h3 {
+	background-color:#C3FF00;
+}
+
+ul.sub-menu {
+  columns: 2;
+  -webkit-columns: 2;
+  -moz-columns: 2;
+}
+
+.sub-menu {
+    height: 10%;
+    background-color:#C3FF00
+}
+
+label.h1 {
+    margin: 0;
+    padding: 0;
+}
+
+.sub-menu.li {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.footer {
+  position: fixed;
+    bottom: 0;
+};
+
+.main_li {
+    font-size: 1.5em;
+}
+}
+
+
+
+@media (max-width: 399px){
+  /* Stuff for really small views goes here. */
+        #map_container {
+    	height: 100%;
+    	border-width: 10px;
+        border-color:black;
+    }
+
+#header {
+    margin:0px;
+    padding:0px;
+    text-align: center;
+    line-height: 2px;
+};
+
+.top_nav {
+    display:flex;
+    padding: 2px;
+    background-color: lightskyblue;
+    border-bottom-color: black;
+    border-width: 3px;
+    
+}
+
+.top_nav_list{
+    display: inline-flex;
+    padding-right:20px;
+    padding-left:10px;
+    font-size:18px;
+}
+
+tabs {
+	width: 90%;
+}
+
+/* Always set the map height explicitly to define the size of the div
+ * element that contains the map. */
+#map {
+  background-color: grey;
+  float: left;
+  height: 70%;
+  width: 75%;
+  border-width: 2px;
+  border-color:black;
+/* Optional: Makes the sample page fill the window. */
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+h1 p {
+	height: 20%;
+	text-align: center;
+	border-width:0px;
+	padding: 0px;
+}
+ 
+#legend {
+	height: 70%;
+	width: 25%;
+	float: right;
+}
+
+h3 {
+	background-color:#C3FF00;
+}
+
+ul.sub-menu {
+  columns: 2;
+  -webkit-columns: 2;
+  -moz-columns: 2;
+}
+
+.sub-menu {
+    height: 10%;
+    background-color:#C3FF00
+}
+
+label.h1 {
+    margin: 0;
+    padding: 0;
+}
+
+.sub-menu.li {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.footer {
+  position: fixed;
+    bottom: 0;
+};
+
+.main_li {
+    font-size: 1.5em;
+}
 }
